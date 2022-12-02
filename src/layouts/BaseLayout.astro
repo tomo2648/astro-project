@@ -1,0 +1,17 @@
+---
+// 1. contentプロパティは、front-matterデータにアクセスできます。
+const { content } = Astro.props;
+---
+<html>
+  <head>
+    <!-- ここにスタイルやmetaタグなど、他のhead要素を追加します。 -->
+    <title>{content.title}</title>
+  </head>
+  <body>
+    <!-- 共通のヘッダーやフッターのような、他のUIコンポーネントをここに追加します。-->
+    <h1>{content.title} by {content.author}</h1>
+    <!-- 2. レンダリングされたHTMLは、デフォルトのスロットに渡されます。 -->
+    <slot />
+    <p>作成日: {content.date}</p>
+  </body>
+</html>
